@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Background Image</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('yupimage.jpg');
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.5s ease-in-out;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+        .form-container h1 {
+            margin-bottom: 20px;
+        }
+        .form-container button {
+            margin: 10px;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.5s ease-in-out;
+        }
+        .form-container button.yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .form-container button.no {
+            background-color: #f44336;
+            color: white;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4CAF50;
+             display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Do you want to change the background image?</h1>
+        <button class="yes" onclick="changeBackground('yes')">Yess!!</button>
+        <button class="no" onclick="changeBackground('no', this)">Not Today</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function changeBackground(answer, button) {
+            const messageElement = document.getElementById('message');
+            if (answer === 'yes') {
+                document.body.style.backgroundImage = "url('happy1.gif')";
+                messageElement.textContent = 'Thanks Cutie! DM meeee!!';
+                messageElement.style.color = '#4CAF50';
+                messageElement.style.display = 'block';
+            } else {
+                document.body.style.backgroundImage = "url('sad.gif')";
+                messageElement.textContent = 'Winter is here';
+                messageElement.style.color = '#f44336';
+                messageElement.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
